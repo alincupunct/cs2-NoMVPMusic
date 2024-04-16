@@ -1,5 +1,6 @@
 # cs2-NoMVPMusic
-Original plugin https://github.com/Source2ZE/MovementUnlocker
-Credits: bklol, backwards
+Linux only
 
-## THIS IS NOT FOR USE
+Original plugin https://github.com/Source2ZE/MovementUnlocker
+
+Credits: bklol, backwards

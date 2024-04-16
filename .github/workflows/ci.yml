@@ -10,9 +10,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-2022, ubuntu-latest]
+        os: [ubuntu-latest]
         include:
-          - os: windows-2022
           - os: ubuntu-latest
             container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
     steps:
