@@ -35,7 +35,7 @@ int PatchLen = 1;
 #elif __linux__
 const unsigned char * pPatchSignature = (unsigned char *)"\x48\x85\xC0\x0F\x84\x2A\x2A\x2A\x2A\x0F\xB6\x05\x2A\x2A\x2A\x2A\x84\xC0\x0F\x84\x2A\x2A\x2A\x2A\x41\x80\x7E\x2A\x00";
 const char* pPatchPattern = "xxxxx????xxx????xxxx????xxx?x";
-int PatchLen = 6;
+int PatchLen = 99;
 #endif
 
 // From https://git.botox.bz/CSSZombieEscape/sm-ext-PhysHooks
@@ -115,7 +115,8 @@ bool NoMVPMusic::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bo
 #ifdef _WIN32
 	*(unsigned char*)(pPatchAddress) = ((unsigned char*)"\xEB")[0];
 #elif __linux__
-	*(unsigned char*)(pPatchAddress + 3) = ((unsigned char*)"\x48\xE9")[0];
+	for (int i = 0; i < PatchLen; i++)
+        *(unsigned char*)(pPatchAddress + i) = ((unsigned char*)"\x90")[0];
 #endif
 
 	SourceHook::SetMemAccess((void*)pPatchAddress, PatchLen, SH_MEM_READ | SH_MEM_EXEC);
